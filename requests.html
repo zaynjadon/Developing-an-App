@@ -1,0 +1,67 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
+<title>Unanswered Requests</title>
+</head>
+<body>
+	<form align="right" name="form1" method="post" action="/logout">
+	<label class="logoutLblPos">
+	<input name="submit" type="submit" id="submit" value="Logout">
+	</label>
+	</form>
+	<!-- we create a table filled with the pending requests, each row is a request and the colloumns are filled with the dog info -->
+	<table>
+	<tr>
+		<th>Dog Name</th>
+		<th>Day</th>
+		<th>Shift</th>
+		<th>Size</th>
+		<th>Age</th>
+		<th>Owner Name</th>
+		<th>Owner Phone</th>
+		<th>Owner E-Mail</th>
+	</tr>
+	{% for query in orders %}
+    <tr>
+        <td>
+          {{ query['dog']['name'] }}
+        </td>
+        <td>
+		  {{ query['day'] }}
+        </td>
+        <td>
+		  {{ query['part'] }}
+        </td>
+        <td>
+          {{ query['dog']['size'] }}
+        </td>
+        <td>
+          {{ query['dog']['age'] }}
+        </td>
+		<td>
+          {{ query['owner']['name'] }}
+        </td>
+        <td>
+          {{ query['owner']['phone number'] }}
+        </td>
+        <td>
+          {{ query['owner']['email'] }}
+        </td>
+		<td>
+          <!-- Accept the activity request -->
+        <a href="/Acceptorder?id={{ query['id'] }}">
+            Accept
+        </a>
+        </td>
+        <td>
+          <!-- Decline the activity request -->
+        <a href="/DeclinedOrder?id={{ query['id'] }}">
+           Decline
+        </a>
+        </td>
+	</tr>
+	{% endfor %}
+<p class = "fixed"><a href="/ShowserviceproviderOrders">take a look at my Activities schedule </a><br>
+<a href="/serviceprovider_r"> see the requests </a></p>
+</body>
+</html>

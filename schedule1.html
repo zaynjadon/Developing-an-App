@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
+<title> Requests</title>
+</head>
+<body>
+	<h1> Heyy, see your schedule:) </h1>
+	<table>
+		<tr>
+			<th>Dog Name</th>
+			<th>Day</th>
+			<th>Shift</th>
+			<th>Size</th>
+			<th>Age</th>
+			<th>Owner Name</th>
+			<th>Owner Phone</th>
+			<th>Owner E-Mail</th>
+		</tr>
+	{% for query in schedule %}
+		<tr>
+			<td>
+			  {{ query['dog']['name'] }}
+			</td>
+			<td>
+			  {{ query['day'] }}
+			</td>
+			<td>
+			  {{ query['part'] }}
+			</td>
+			<td>
+			  {{ query['dog']['size'] }}
+			</td>
+			<td>
+			  {{ query['dog']['age'] }}
+			</td>
+			<td>
+			  {{ query['owner']['name'] }}
+			</td>
+			<td>
+			  {{query['owner']['phone number']}}
+			</td>
+			<td>
+			  {{ query['owner']['email'] }}
+			</td>
+		</tr>
+	{% endfor %}
+<p class = "fixed"><a href="/ShowserviceproviderOrders">take a look at my Activities schedule </a><br>
+<a href="/serviceprovider_r"> see the requests </a></p>
+</body>
+</html>
